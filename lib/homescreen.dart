@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:masakyuk/favorite.dart';
+import 'package:masakyuk/explore.dart';
 import 'package:masakyuk/data.dart';
 import 'package:masakyuk/detailscreen.dart';
 import 'package:masakyuk/profile.dart';
@@ -26,9 +26,9 @@ class _BottomNaviState extends State<BottomNavi> {
 
   int currentIndex = 0;
   final List <Widget> body =[
-    const HomePage(),
-    const FavoriteScreen(),
-    const ProfileScreen(),
+     HomePage(),
+     ExploreScreen(),
+     ProfileScreen(),
   ];
 
   @override
@@ -45,15 +45,15 @@ class _BottomNaviState extends State<BottomNavi> {
         selectedItemColor: Colors.orange,
         items: [
         const BottomNavigationBarItem(
-         icon: const Icon(Icons.home,),
+         icon: const Icon(Icons.home_outlined,),
          label: "Home",
          ),
          const BottomNavigationBarItem(
-         icon: Icon(Icons.fastfood,),
-         label: 'favorite',
+         icon: Icon(Icons.explore_outlined,),
+         label: 'Explore',
          ),
          const BottomNavigationBarItem(
-         icon: Icon(Icons.food_bank_outlined),
+         icon: Icon(Icons.person_outline,),
          label: 'Profile',
          ),
         ],
@@ -80,6 +80,7 @@ class HomePage extends StatelessWidget {
         title: const Text('Masakyuk'),
         backgroundColor: const Color.fromARGB(235, 245, 135, 51),
       ),
+
       body: SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 8.0),
@@ -93,7 +94,7 @@ class HomePage extends StatelessWidget {
                     Hero(
                       tag: 'pp',
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
                         child: Image.network(resep[0].imageUrls, fit: BoxFit.cover, )
                         ),
                     ),
@@ -129,11 +130,11 @@ class HomePage extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-              ),     
+              ),
               ),
               Expanded(
                 child: ListView.builder(
-                  itemCount: makananList.length,
+                  itemCount: 4,
                   itemBuilder: (context, index, ){
                     final Resep resep = makananList[index];
                     return GestureDetector(
@@ -149,7 +150,9 @@ class HomePage extends StatelessWidget {
                                 children: <Widget>[
                                   SizedBox(
                                     height: 70,
-                                    child: Image.network(resep.imageUrls, fit: BoxFit.cover, ),
+                                    child: Hero(
+                                      tag: 'pp',
+                                        child: Image.network(resep.imageUrls, fit: BoxFit.cover, )),
                                   ),
                                   const SizedBox(
                                     width: 20,
@@ -164,10 +167,10 @@ class HomePage extends StatelessWidget {
                     );
                   }
                 ),
-              )               
+              )
            ],
         ),
-      ),                
+      ),
       ),
     );
   }

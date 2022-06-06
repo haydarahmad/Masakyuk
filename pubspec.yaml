@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   sliding_up_panel: ^2.0.0
   google_fonts: 2.2.0
+  tab_indicator_styler: ^2.0.0
 
 dev_dependencies:
   flutter_test:

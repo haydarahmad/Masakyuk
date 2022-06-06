@@ -41,6 +41,50 @@ class ProfileScreen extends StatelessWidget {
         style: TextStyle(fontSize: 20),
         ),
     ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: Container(
+                margin: EdgeInsets.symmetric(vertical: 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Container(
+                      height: 48.0,
+                      width: 100.0,
+                      child: Column(
+                        children: <Widget>[
+                          Icon(Icons.telegram),
+                          SizedBox(height: 8.0),
+                          Text("Haydar",)
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 48.0,
+                      width: 100.0,
+                      child: Column(
+                        children: <Widget>[
+                          Icon(Icons.facebook),
+                          SizedBox(height: 8.0),
+                          Text("ahmad")
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 48.0,
+                      width: 100.0,
+                      child: Column(
+                        children: <Widget>[
+                          Icon(Icons.email),
+                          SizedBox(height: 8.0),
+                          Text("haydar")
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
     Padding(
       padding: const EdgeInsets.only(top:40,right: 250),
       child: Text(
@@ -48,10 +92,9 @@ class ProfileScreen extends StatelessWidget {
         style: TextStyle(fontSize: 20),
         ),
     ),
-    
          Expanded(
                 child: ListView.builder(
-                  itemCount: makananList.length,
+                  itemCount: 2,
                   itemBuilder: (context, index, ){
                     final Resep resep = makananList[index];
                     return GestureDetector(
